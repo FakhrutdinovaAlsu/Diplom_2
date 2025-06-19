@@ -1,7 +1,7 @@
 package ru.praktikum;
 
 public class OrderDetails {
-    private String _id;
+    private String id;
     private String name;
     private String type;
     private int proteins;
@@ -10,13 +10,13 @@ public class OrderDetails {
     private int calories;
     private int price;
     private String image;
-    private String image_mobile;
-    private String image_large;
-    private int __v;
+    private String imageMobile;
+    private String imageLarge;
+    private int v;
 
-    public OrderDetails(String _id, String name,String type,int proteins,int fat,int carbohydrates,
-                        int calories,int price,String image,String image_mobile,String image_large,int __v) {
-        this._id = _id;
+    public OrderDetails(String id, String name, String type, int proteins, int fat, int carbohydrates,
+                        int calories, int price, String image, String imageMobile, String imageLarge, int v) {
+        this.id = id;
         this.name = name;
         this.type = type;
         this.proteins =proteins;
@@ -25,19 +25,19 @@ public class OrderDetails {
         this.calories = calories;
         this.price = price;
         this.image = image;
-        this.image_mobile = image_mobile;
-        this.image_large = image_large;
-        this.__v = __v;
+        this.imageMobile = imageMobile;
+        this.imageLarge = imageLarge;
+        this.v = v;
     }
 
     public OrderDetails() {}
 
-    public String get_id() {
-        return _id;
+    public String getId() {
+        return id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -104,27 +104,27 @@ public class OrderDetails {
         this.image = image;
     }
 
-    public String getImage_mobile() {
-        return image_mobile;
+    public String getImageMobile() {
+        return imageMobile;
     }
 
-    public void setImage_mobile(String image_mobile) {
-        this.image_mobile = image_mobile;
+    public void setImageMobile(String imageMobile) {
+        this.imageMobile = imageMobile;
     }
 
-    public String getImage_large() {
-        return image_large;
+    public String getImageLarge() {
+        return imageLarge;
     }
 
-    public void setImage_large(String image_large) {
-        this.image_large = image_large;
+    public void setImageLarge(String imageLarge) {
+        this.imageLarge = imageLarge;
     }
 
-    public int get__v() {
-        return __v;
+    public int getV() {
+        return v;
     }
 
-    public void set__v(int __v) {
-        this.__v = __v;
+    public void setV(int v) {
+        this.v = v;
     }
 }

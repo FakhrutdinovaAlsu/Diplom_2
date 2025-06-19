@@ -51,7 +51,7 @@ public class TestCreateOrder {
     @Test
     @DisplayName("Создание заказа без авторизации")
     public void testCreateOrderWithBurgerInfoWithOutAuth() {
-        OrderSteps.createOrder(new CreateOrderData(ingredients),"").statusCode(501);
+        OrderSteps.createOrder(new CreateOrderData(ingredients),"").statusCode(401);
     }
 
     @Test
