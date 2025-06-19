@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import org.junit.After;
@@ -33,6 +34,7 @@ public class TestLogInUser {
 
     @Test
     @DisplayName("Проверка успешности авторизации")
+    @Description("Проводится проверка успешность авторизации")
     public void shouldReturnSuccessTrue() {
         userSteps
                 .loginUser(email, password)
@@ -42,6 +44,7 @@ public class TestLogInUser {
 
     @Test
     @DisplayName("Попытка авторизации без email")
+    @Description("Проводится проверка успешность авторизации без ввода email")
     public void loginWithIncorrectEmail() {
         userSteps
                 .loginUser("123"+email, password)
@@ -51,6 +54,7 @@ public class TestLogInUser {
 
     @Test
     @DisplayName("Попытка авторизации без пароля")
+    @Description("Проводится проверка успешность авторизации без ввода пароля")
     public void loginWithIncorrectPassword() {
         userSteps
                 .loginUser(email,"123"+password)

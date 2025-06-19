@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import org.junit.After;
@@ -31,6 +32,7 @@ public class TestCreateNewUser {
 
     @Test
     @DisplayName("Проверка на успешную регистрацию")
+    @Description("Проводится проверка на успешную регитсрацию нового пользователя")
     public void shouldReturnSuccessTrue () {
         userSteps
             .createUser(email, password, name)
@@ -40,6 +42,7 @@ public class TestCreateNewUser {
 
     @Test
     @DisplayName("Создание пользователя, который уже зарегистрирован")
+    @Description("Проводится проверка на создание пользователя, который уже зарегистрирован")
     public void shouldReturnUserAlreadyExists () {
     userSteps.createUser(email, password, name);
     userSteps.createUser(email, password, name)
@@ -49,6 +52,7 @@ public class TestCreateNewUser {
 
     @Test
     @DisplayName("Создание пользователя без Email")
+    @Description("Проводится проверка на создание пользователя без указания Email")
     public void registerWithOutEmail () {
         userSteps.createUser("", password, name)
             .statusCode(403)
@@ -57,6 +61,7 @@ public class TestCreateNewUser {
 
     @Test
     @DisplayName("Создание пользователя без пароля")
+    @Description("Проводится проверка на создание пользователя без указания пароля")
     public void registerWithOutPassword () {
         userSteps.createUser(email, "", name)
             .statusCode(403)
@@ -65,6 +70,7 @@ public class TestCreateNewUser {
 
     @Test
     @DisplayName("Создание пользователя без имени")
+    @Description("Проводится проверка на создание пользователя без указания имени")
     public void registerWithOutName () {
         userSteps
             .createUser(email, password, "")

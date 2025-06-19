@@ -1,3 +1,4 @@
+import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import org.junit.After;
@@ -43,6 +44,7 @@ public class TestCreateOrder {
 
     @Test
     @DisplayName("Создание заказа с авторизацией")
+    @Description("Проводится проверка на создание заказа для пользователя с авторизацией")
     public void testCreateOrderWithAuthAndBurgerInfo() {
         OrderSteps.createOrder(new CreateOrderData(ingredients),accessToken)
                 .statusCode(200)
@@ -53,12 +55,14 @@ public class TestCreateOrder {
 
     @Test
     @DisplayName("Создание заказа без авторизации")
+    @Description("Проводится проверка на создание заказа для пользователя без авторизации")
     public void testCreateOrderWithBurgerInfoWithOutAuth() {
         OrderSteps.createOrder(new CreateOrderData(ingredients),"").statusCode(401);
     }
 
     @Test
     @DisplayName("Создание заказа с информацией о наполнении")
+    @Description("Проводится проверка на создание заказа с информацией о наполнении")
     public void testCreateOrderWithBurgerInfo() {
         OrderSteps.createOrder(new CreateOrderData(ingredients),accessToken)
                 .statusCode(200)
@@ -67,6 +71,7 @@ public class TestCreateOrder {
 
     @Test
     @DisplayName("Создание заказа без информации о бургере")
+    @Description("Проводится проверка на создание заказа без информации о бургере")
         public void testCreateOrderWithOutBurgerInfo() {
         OrderSteps.createOrder(new CreateOrderData(new String[0]), accessToken)
                     .statusCode(400)
@@ -76,6 +81,7 @@ public class TestCreateOrder {
 
     @Test
     @DisplayName("Создание заказа с неверным хэш ингредиентов")
+    @Description("Проводится проверка на создание заказа с неверным хешем ингредиентов")
     public void testCreateOrderWithIncorrectBurgerInfo() {
         String[] incorrectId = new String[1];
         incorrectId[0] = "123456";
