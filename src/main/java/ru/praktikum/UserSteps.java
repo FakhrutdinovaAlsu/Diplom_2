@@ -26,10 +26,9 @@ public class UserSteps {
         LogInDetails logInDetails = new LogInDetails(email, password,name);
         return (ValidatableResponse) given()
                 .contentType(ContentType.JSON)
-                .baseUri("https://stellarburgers.nomoreparties.site/")
                 .body(logInDetails)
                 .when()
-                .post("api/auth/register")
+                .post(ApiConfig.getRegisterPath())
                 .then();
     }
 
@@ -38,10 +37,9 @@ public class UserSteps {
         LogInDetails logInDetails = new LogInDetails(login, password);
         return given()
                 .contentType(ContentType.JSON)
-                .baseUri("https://stellarburgers.nomoreparties.site/")
                 .body(logInDetails)
                 .when()
-                .post("api/auth/login")
+                .post(ApiConfig.getLoginPath())
                 .then();
     }
 
@@ -50,9 +48,8 @@ public class UserSteps {
         return given()
                 .header("Authorization", accessToken)
                 .contentType(ContentType.JSON)
-                .baseUri("https://stellarburgers.nomoreparties.site/")
                 .when()
-                .delete("api/auth/user")
+                .delete(ApiConfig.getRDeliteUserPath())
                 .then();
     }
 }

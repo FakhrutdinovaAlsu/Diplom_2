@@ -1,7 +1,9 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.praktikum.ApiConfig;
 import ru.praktikum.UserSteps;
 
 import static org.hamcrest.Matchers.is;
@@ -14,6 +16,7 @@ public class TestLogInUser {
 
     @Before
     public void setUp() {
+        RestAssured.baseURI = ApiConfig.getBaseUrl();
         email = UserSteps.returnRandomEmail();
         password = UserSteps.returnRandomPassword();
         name = UserSteps.returnRandomName();

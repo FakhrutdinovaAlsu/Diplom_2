@@ -1,7 +1,9 @@
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.RestAssured;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.praktikum.ApiConfig;
 import ru.praktikum.CreateOrderData;
 import ru.praktikum.OrderSteps;
 import ru.praktikum.UserSteps;
@@ -21,6 +23,7 @@ public class TestCreateOrder {
 
     @Before
     public void setUp() {
+        RestAssured.baseURI = ApiConfig.getBaseUrl();
         email = UserSteps.returnRandomEmail();
         password = UserSteps.returnRandomPassword();
         name = UserSteps.returnRandomName();

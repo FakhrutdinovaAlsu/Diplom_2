@@ -10,7 +10,6 @@ public class OrderSteps {
     @Step("Получение списка заказов с сервера")
     public static ValidatableResponse getOrderList() {
         return given()
-                .baseUri("https://stellarburgers.nomoreparties.site/")
                 .when()
                 .get("api/orders/all")
                 .then();
@@ -19,9 +18,8 @@ public class OrderSteps {
     @Step("Получение списка ингредиентов с сервера")
     public static ValidatableResponse getIngredientsList() {
         return given()
-                .baseUri("https://stellarburgers.nomoreparties.site/")
                 .when()
-                .get("api/ingredients")
+                .get(ApiConfig.getIngredientsPath())
                 .then();
     }
 
@@ -36,10 +34,9 @@ public class OrderSteps {
         return (ValidatableResponse) given()
                 .header("Authorization", accessToken)
                 .contentType(ContentType.JSON)
-                .baseUri("https://stellarburgers.nomoreparties.site/")
                 .body(createOrderData)
                 .when()
-                .post("api/orders")
+                .post(ApiConfig.getAddOrderPath())
                 .then();
     }
 }
